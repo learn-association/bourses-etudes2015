@@ -28,7 +28,7 @@
     app.factory('userService', ['$rootScope', function ($rootScope) {
         'use strict';
         var userService = {
-            voteState: true
+            voteState: false
         };
 
         // add a listener on a key
@@ -68,13 +68,13 @@
         $scope.labels = ["Autres", "Education"];
         $scope.getData = function () {
             if (userService.voteState) {
+                $scope.investment = 35162;
+                // 5.5656312 %
+                $scope.data = [94.37, 5.63];
+            } else {
                 $scope.investment = 34662;
                 // 5.54962 %
                 $scope.data = [94.45, 5.55];
-            } else {
-                $scope.investment = 34762;
-                // 5.5656312 %
-                $scope.data = [94.43, 5.57];
             }
         };
         $scope.data = $scope.getData();
@@ -85,9 +85,11 @@
         $scope.labels = ["Autres", "Education"];
         $scope.getData = function () {
             if (userService.voteState) {
-                $scope.data = [85, 17];
+                // 17.455954
+                $scope.data = [82.34, 17.66];
             } else {
-                $scope.data = [84, 18];
+                // 17.4057393
+                $scope.data = [82.59, 17.41];
             }
         };
         $scope.data = $scope.getData();
@@ -96,12 +98,18 @@
     });
 
     app.controller("ChartPublicInvestmentDetailController", function ($scope, $rootScope, userService) {
-        $scope.labels = ["Autres","Autres","Autres", "Bourse"];
+        $scope.labels = ["Investissements",
+            "Autres dépenses de fonctionnement",
+            "Biens, services et marchandises",
+            "Rémunération autre personnel",
+            "Rémunération enseignants",
+            "Bourse d'étude"
+        ];
         $scope.getData = function () {
             if (userService.voteState) {
-                $scope.data = [10,40, 85, 1];
+                $scope.data = [8.1, 11.1 - 2.29 , 14.2, 14.8, 51.9, 2.29];
             } else {
-                $scope.data = [10,40, 85, 2];
+                $scope.data = [8.1, 11.1 - 0.88, 14.2, 14.8, 51.9, 0.88];
             }
         };
         $scope.data = $scope.getData();

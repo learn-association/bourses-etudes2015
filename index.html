@@ -5,11 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title></title>
+    <title>Initiative sur les bourses d'études</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
 
+    <style>
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 23px;
+        }
+
+        .navbar {
+            margin-bottom: 0;
+        }
+
+        .top-header {
+            background-color: #FFF;
+            padding-top: 5px;
+            padding-bottom: 28px;
+            text-align: left;
+            width: 100%;
+
+        }
+
+        .top-header h1 {
+            font-size: 23px;
+            font-weight: 500;
+            margin-right: 350px;
+        }
+
+        .top-header.affix-top {
+            position: absolute;
+        }
+
+        .top-header.affix {
+            position: fixed;
+            box-shadow: 0px 1px 5px #888888;
+        }
+
+        .affix {
+            top: 0;
+            z-index: 200;
+        }
+
+        .main-content {
+            margin-top: 160px;
+        }
+    </style>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -31,7 +77,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">Initiative sur les bourses d'études</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -49,24 +95,53 @@
         <!--/.nav-collapse -->
     </div>
 </nav>
-<div ng-controller="UserController as user">
 
-    <div class="btn-group">
-        <label class="btn btn-primary" ng-model="voteState" btn-radio="true">si je vote oui</label>
-        <label class="btn btn-primary" ng-model="voteState" btn-radio="false">si je vote non</label>
+<header class="top-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div ng-controller="UserController as user">
+                    <h1>Quelles sont les conséquences de l'acceptation ou du rejet de l'initiative sur les bourses
+                        d'études ?</h1>
+
+                    <div class="btn-group">
+                        <label class="btn btn-primary  btn-danger" ng-model="voteState" btn-radio="false">Si je
+                            vote
+                            non</label>
+                        <label class="btn btn-primary  btn-success" ng-model="voteState" btn-radio="true">Si je
+                            vote
+                            oui</label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</header>
 
-
-<div class="container-fluid">
+<div class="container main-content">
 
 
     <div class="row" ng-controller="ChartPIBController">
-        <h1>La Suisse investi {{investment | number}} millions soit {{ data[1] }}% du PIB dans l'éducation</h1>
 
-        <div class="col-md-8">
-            <canvas id="doughnutPIB" class="chart chart-doughnut chart-xs" data="data" labels="labels"
-                    legend="true"></canvas>
+        <div class="col-md-12">
+            <h2>La Suisse investi {{investment | number}} millions, soit {{ data[1] }}% du PIB dans l'éducation</h2>
+        </div>
+        <div class="col-md-6">
+            <p>
+                <canvas id="doughnutPIB" class="chart chart-doughnut" data="data" labels="labels"
+                        legend="true"></canvas>
+            </p>
+        </div>
+        <div class="col-md-7">
+
+            <p>
+                En cas d'acceptation de l'initiative, le montant investi augmenterait légèrement de 5.55 à
+                5.63% du PIB. Les pays de l'OCDE investissent 5.8% de leur PIB dans l'éducation.
+                Certains pays, comme la Norvège, investissent plus de 8% de leur PIB dans la formation.
+            </p>
+
             <p>
                 <small>Source: <a
                         href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/17/blank/01.indicator.402101.4012.html?open=1,520#520">Statistique
@@ -79,26 +154,52 @@
     </div>
 
     <div class="row" ng-controller="ChartPublicInvestmentController">
-        <h1>L'éducation représente {{ data[1] }}% des dépenses publique </h1>
+        <div class="col-md-12">
+            <h2>L'éducation représente {{ data[1] }}% des dépenses publiques</h2>
+        </div>
 
-        <div class="col-md-8">
-            <canvas id="doughnutDepensePublic" class="chart chart-doughnut chart-xs" data="data" labels="labels"
-                    legend="true"></canvas>
+
+        <div class="col-md-6">
+            <p>
+                <canvas id="doughnutDepensePublic" class="chart chart-doughnut" data="data" labels="labels"
+                        legend="true"></canvas>
+            </p>
+        </div>
+        <div class="col-md-7">
+            <p>
+                En cas d'acception de l'initiative, l'argent public investi dans l'éducation augmenterait
+                légèrement de 17.41 % à 17.46%.
+            </p>
         </div>
     </div>
 
     <div class="row" ng-controller="ChartPublicInvestmentDetailController">
-        <h1>Répartition du montant des dépenses publique dans l'éducation</h1>
 
-        <div class="col-md-8">
-            <canvas id="chartDepensePublicDetail" class="chart chart-doughnut" data="data" labels="labels"
-                    legend="true"></canvas>
+
+        <div class="col-md-12">
+            <h2>Répartition du montant des dépenses publique dans l'éducation</h2>
         </div>
+
+
+        <div class="col-md-6">
+            <p>
+                <canvas id="chartDepensePublicDetail" class="chart chart-doughnut" data="data" labels="labels"
+                        legend="true"></canvas>
+            </p>
+        </div>
+        <div class="col-md-7">
+            <p>
+
+            </p>
+        </div>
+
     </div>
 </div>
 
 <!-- JS Libs -->
 <script src="bower_components/angular/angular.js"></script>
+<script src="angular/i18n/angular-locale_de-ch.js"></script>
+
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
@@ -111,5 +212,14 @@
 
 <script src="app/app.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script>
+    $('.top-header').affix({
+        offset: {
+            top: $('.top-header').offset().top
+        }
+    });
+</script>
+
 </body>
 </html>
