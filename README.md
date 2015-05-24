@@ -1,3 +1,4 @@
-5,2% PIB 2014
+Charts to show the impact of the modification of the education grant in switzerland.
 
-34'662 Million (2012)
+See http://www.bourses-etudes.ch/ (fr)
+http://www.stipendieninitiative.ch/ (de)
