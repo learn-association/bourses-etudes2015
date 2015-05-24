@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Charts</title>
+    <title></title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
 
 
@@ -18,25 +17,83 @@
     <![endif]-->
 </head>
 
-<body ng-app="app" class="container-fluid">
+<body ng-app="app">
 
-<div class="row" ng-controller="UserController as user">
-    {{user.getVoteState()}}
-    <a href="" ng-click="user.setVoteToNo()">Vote No</a>
-    <a href="" ng-click="user.setVoteToYes()">Vote Yes</a>
 
-</div>
+<!-- Static navbar -->
+<nav ng-controller="UserController as user" class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="btn" ng-click="changeLanguage('en')" class="ng-scope">English</a>
+                </li>
+                <li>
+                    <a class="btn" ng-click="changeLanguage('de')" class="ng-scope">Deutsch</a>
+                </li>
+                <li>
+                    <a class="btn" ng-click="changeLanguage('fr')" class="ng-scope">Français</a>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+<div ng-controller="UserController as user">
 
-<div class="row" ng-controller="DoughnutPIBController">
-    <h1>{{ data[1] }}% du PIB sont investi dans la formation</h1>
-    <div class="col-md-8" >
-        <canvas id="doughnutPIB" class="chart chart-doughnut chart-xs" data="data" labels="labels" legend="true"></canvas>
+    <div class="btn-group">
+        <label class="btn btn-primary" ng-model="voteState" btn-radio="true">si je vote oui</label>
+        <label class="btn btn-primary" ng-model="voteState" btn-radio="false">si je vote non</label>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12">
-        <h1>Dépense formation par rapport au total des dépenses publique</h1>
+
+<div class="container-fluid">
+
+
+    <div class="row" ng-controller="ChartPIBController">
+        <h1>La Suisse investi {{investment | number}} millions soit {{ data[1] }}% du PIB dans l'éducation</h1>
+
+        <div class="col-md-8">
+            <canvas id="doughnutPIB" class="chart chart-doughnut chart-xs" data="data" labels="labels"
+                    legend="true"></canvas>
+            <p>
+                <small>Source: <a
+                        href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/17/blank/01.indicator.402101.4012.html?open=1,520#520">Statistique
+                    Suisse – Dépenses publiques d’éducation</a> (2012)
+                </small>
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row" ng-controller="ChartPublicInvestmentController">
+        <h1>L'éducation représente {{ data[1] }}% des dépenses publique </h1>
+
+        <div class="col-md-8">
+            <canvas id="doughnutDepensePublic" class="chart chart-doughnut chart-xs" data="data" labels="labels"
+                    legend="true"></canvas>
+        </div>
+    </div>
+
+    <div class="row" ng-controller="ChartPublicInvestmentDetailController">
+        <h1>Répartition du montant des dépenses publique dans l'éducation</h1>
+
+        <div class="col-md-8">
+            <canvas id="chartDepensePublicDetail" class="chart chart-doughnut" data="data" labels="labels"
+                    legend="true"></canvas>
+        </div>
     </div>
 </div>
 
@@ -46,7 +103,10 @@
 
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+
 <script src="bower_components/Chart.js/Chart.js"></script>
+
 <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
 
 <script src="app/app.js"></script>
