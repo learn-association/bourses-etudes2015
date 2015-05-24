@@ -1,0 +1,22 @@
+{
+  "name": "bourses2015",
+  "version": "0.0.0",
+  "authors": [
+    "simon perdrisat <perdrisat@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "~1.0.2",
+    "angular-chart.js": "~0.7.1",
+    "bootstrap-sass": "~3.3.4",
+    "angular-bootstrap": "~0.13.0",
+    "angular-translate": "~2.7.0"
+  }
+}
