@@ -33,28 +33,13 @@
         }
 
         .top-header h1 {
-            font-size: 23px;
             font-weight: 500;
-            margin-right: 350px;
-        }
-
-        .top-header.affix-top {
-            position: absolute;
-        }
-
-        .top-header.affix {
-            position: fixed;
-            box-shadow: 0px 1px 5px #888888;
         }
 
         .affix {
             top: 0;
-            z-index: 200;
         }
 
-        .main-content {
-            margin-top: 160px;
-        }
     </style>
 
     <!--[if lt IE 9]>
@@ -64,7 +49,15 @@
 </head>
 
 <body ng-app="app">
-
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1587196631554813";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Static navbar -->
 <nav ng-controller="UserController as user" class="navbar navbar-default navbar-static-top">
@@ -100,101 +93,129 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
-                <div ng-controller="UserController as user">
-                    <h1>Quelles sont les conséquences de l'acceptation ou du rejet de l'initiative sur les bourses
-                        d'études ?</h1>
-
-                    <div class="btn-group">
-                        <label class="btn btn-primary  btn-danger" ng-model="voteState" btn-radio="false">Si je
-                            vote
-                            non</label>
-                        <label class="btn btn-primary  btn-success" ng-model="voteState" btn-radio="true">Si je
-                            vote
-                            oui</label>
-
-                    </div>
-                </div>
+                <h1>Quelles sont les conséquences de l'acceptation ou du rejet de l'initiative sur les bourses
+                    d'études ?</h1>
             </div>
         </div>
     </div>
 </header>
 
 <div class="container main-content">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="control">
+                <p>Simuler les différences sur les budgets (chiffre 2012)</p>
 
-
-    <div class="row" ng-controller="ChartPIBController">
-
-        <div class="col-md-12">
-            <h2>La Suisse investi {{investment | number}} millions, soit {{ data[1] }}% du PIB dans l'éducation</h2>
+                <form ng-controller="UserController as user">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="voteState" ng-model="voteState" ng-value="false">
+                            Si je vote non
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="voteState" ng-model="voteState" ng-value="true">
+                            Si je vote oui
+                        </label>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="col-md-6">
-            <p>
-                <canvas id="doughnutPIB" class="chart chart-doughnut" data="data" labels="labels"
-                        legend="true"></canvas>
-            </p>
-        </div>
-        <div class="col-md-7">
 
-            <p>
-                En cas d'acceptation de l'initiative, le montant investi augmenterait légèrement de 5.55 à
-                5.63% du PIB. Les pays de l'OCDE investissent 5.8% de leur PIB dans l'éducation.
-                Certains pays, comme la Norvège, investissent plus de 8% de leur PIB dans la formation.
-            </p>
+        <div class="col-md-9">
 
-            <p>
-                <small>Source: <a
-                        href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/17/blank/01.indicator.402101.4012.html?open=1,520#520">Statistique
-                    Suisse – Dépenses publiques d’éducation</a> (2012)
-                </small>
-            </p>
+
+            <div class="row" ng-controller="ChartPIBController">
+
+                <div class="col-md-12">
+                    <h2>La Suisse investi {{investment | number}} millions, soit {{ data[1] }}% du PIB dans
+                        l'éducation</h2>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <canvas id="doughnutPIB" class="chart chart-doughnut" data="data" labels="labels"
+                                legend="true"></canvas>
+                    </p>
+                </div>
+                <div class="col-md-7">
+
+                    <p>
+                        En cas d'acceptation de l'initiative, le montant investi augmenterait légèrement de 5.55 à
+                        5.63% du PIB. Les pays de l'OCDE investissent 5.8% de leur PIB dans l'éducation.
+                        Certains pays, comme la Norvège, investissent plus de 8% de leur PIB dans la formation.
+                    </p>
+
+                    <p>
+                        <small>Source: <a
+                                href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/17/blank/01.indicator.402101.4012.html?open=1,520#520">Statistique
+                            Suisse – Dépenses publiques d’éducation</a> (2012)
+                        </small>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="row" ng-controller="ChartPublicInvestmentController">
+                <div class="col-md-12">
+                    <h2>L'éducation représente {{ data[1] }}% des dépenses publiques</h2>
+                </div>
+
+
+                <div class="col-md-6">
+                    <p>
+                        <canvas id="doughnutDepensePublic" class="chart chart-doughnut" data="data" labels="labels"
+                                legend="true"></canvas>
+                    </p>
+                </div>
+                <div class="col-md-7">
+                    <p>
+                        En cas d'acception de l'initiative, l'argent public investi dans l'éducation augmenterait
+                        légèrement de 17.41 % à 17.46%.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row" ng-controller="ChartPublicInvestmentDetailController">
+
+
+                <div class="col-md-12">
+                    <h2>Répartition du montant des dépenses publique dans l'éducation</h2>
+                </div>
+
+
+                <div class="col-md-6">
+                    <p>
+                        <canvas id="chartDepensePublicDetail" class="chart chart-doughnut" data="data" labels="labels"
+                                legend="true"></canvas>
+                    </p>
+                </div>
+                <div class="col-md-7">
+                    <p>
+
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- FB comment -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/"
+                         data-numposts="5" data-colorscheme="light" data-width="100%"></div>
+                </div>
+            </div>
 
         </div>
 
     </div>
 
-    <div class="row" ng-controller="ChartPublicInvestmentController">
-        <div class="col-md-12">
-            <h2>L'éducation représente {{ data[1] }}% des dépenses publiques</h2>
-        </div>
 
-
-        <div class="col-md-6">
-            <p>
-                <canvas id="doughnutDepensePublic" class="chart chart-doughnut" data="data" labels="labels"
-                        legend="true"></canvas>
-            </p>
-        </div>
-        <div class="col-md-7">
-            <p>
-                En cas d'acception de l'initiative, l'argent public investi dans l'éducation augmenterait
-                légèrement de 17.41 % à 17.46%.
-            </p>
-        </div>
-    </div>
-
-    <div class="row" ng-controller="ChartPublicInvestmentDetailController">
-
-
-        <div class="col-md-12">
-            <h2>Répartition du montant des dépenses publique dans l'éducation</h2>
-        </div>
-
-
-        <div class="col-md-6">
-            <p>
-                <canvas id="chartDepensePublicDetail" class="chart chart-doughnut" data="data" labels="labels"
-                        legend="true"></canvas>
-            </p>
-        </div>
-        <div class="col-md-7">
-            <p>
-
-            </p>
-        </div>
-
-    </div>
 </div>
+
+
+<footer></footer>
 
 <!-- JS Libs -->
 <script src="bower_components/angular/angular.js"></script>
@@ -214,9 +235,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <script>
-    $('.top-header').affix({
+    $('.control').affix({
         offset: {
-            top: $('.top-header').offset().top
+            top: $('.control').offset().top
         }
     });
 </script>
