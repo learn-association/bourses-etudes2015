@@ -44,6 +44,12 @@
             padding: 10px;
         }
 
+        .radio label {
+            padding-left: 30px;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
     </style>
 
     <!--[if lt IE 9]>
@@ -99,6 +105,15 @@
             <div class="col-md-12">
                 <h1>Quelles sont les conséquences de l'acceptation ou du rejet de l'initiative sur les bourses
                     d'études ?</h1>
+
+            </div>
+            <div class="col-md-10 head">
+                <p class="lead">
+                Simulation effectuer à partir des statistiques des dépenses de 2012.
+                Si vous cliquer sur "si je vote oui", la simulation ajoute
+                500 Millions au budget (chiffre avancé par les Conseil fédéral).
+                <small>Cependant, il semblerait qu'il s'agira plutôt de 200 Millions seulement.</small>
+            </p>
             </div>
         </div>
     </div>
@@ -108,7 +123,7 @@
     <div class="row">
         <div class="col-md-3">
             <div class="control">
-                <p>Simuler les différences sur les budgets (chiffre 2012)</p>
+                <h4>Simuler les conséquences</h4>
 
                 <form ng-controller="UserController as user">
                     <div class="radio">
