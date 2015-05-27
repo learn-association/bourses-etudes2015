@@ -44,8 +44,8 @@
             padding: 10px;
         }
 
-        .radio label {
-            padding-left: 30px;
+        .form-inline .radio label {
+            padding-left: 6px;
             font-size: 14px;
             font-weight: 400;
         }
@@ -56,6 +56,7 @@
 
         .control {
             margin-top: 10px;
+            z-index:100;
         }
 
     </style>
@@ -103,8 +104,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Quelles sont les conséquences de l'acceptation ou du rejet de l'initiative sur les bourses
-                    d'études ?</h1>
+                <h1>Initiative sur les bourses
+                    d'études. Quelles conséquences?</h1>
 
             </div>
             <div class="col-md-10 head">
@@ -124,9 +125,9 @@
         <div class="col-md-3">
             <div class="control">
                 <div class="well well-sm">
-                    <h4>Simuler les conséquences</h4>
+                    <h4>Que se passe t'il?</h4>
 
-                    <form ng-controller="UserController as user">
+                    <form class="form-inline" ng-controller="UserController as user">
                         <div class="radio">
                             <label class="bg-danger radio-ctrl">
                                 <input type="radio" name="voteState" ng-model="voteState" ng-value="false">
