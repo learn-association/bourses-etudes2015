@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
 
     <style>
-        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h5, h6 {
             font-weight: 300;
         }
 
@@ -50,6 +50,14 @@
             font-weight: 400;
         }
 
+        input[type="radio"]:focus {
+            outline: none;
+        }
+
+        .control {
+            margin-top: 10px;
+        }
+
     </style>
 
     <!--[if lt IE 9]>
@@ -59,15 +67,7 @@
 </head>
 
 <body ng-app="app">
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1587196631554813";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
 
 <!-- Static navbar -->
 <nav ng-controller="UserController as user" class="navbar navbar-default navbar-static-top">
@@ -85,13 +85,13 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="btn" ng-click="changeLanguage('en')" class="ng-scope">English</a>
+                    <a ng-click="changeLanguage('en')" class="ng-scope btn">English</a>
                 </li>
                 <li>
-                    <a class="btn" ng-click="changeLanguage('de')" class="ng-scope">Deutsch</a>
+                    <a ng-click="changeLanguage('de')" class="ng-scope btn">Deutsch</a>
                 </li>
                 <li>
-                    <a class="btn" ng-click="changeLanguage('fr')" class="ng-scope">Français</a>
+                    <a ng-click="changeLanguage('fr')" class="ng-scope btn">Français</a>
                 </li>
             </ul>
         </div>
@@ -109,11 +109,11 @@
             </div>
             <div class="col-md-10 head">
                 <p class="lead">
-                Simulation effectuer à partir des statistiques des dépenses de 2012.
-                Si vous cliquer sur "si je vote oui", la simulation ajoute
-                500 Millions au budget (chiffre avancé par les Conseil fédéral).
-                <small>Cependant, il semblerait qu'il s'agira plutôt de 200 Millions seulement.</small>
-            </p>
+                    Simulation effectuer à partir des statistiques des dépenses de 2012.
+                    Si vous cliquer sur "si je vote oui", la simulation ajoute
+                    500 Millions au budget (chiffre avancé par les Conseil fédéral).<br/>
+                    <small>Cependant, il semblerait qu'il s'agira plutôt de 200 Millions .</small>
+                </p>
             </div>
         </div>
     </div>
@@ -123,22 +123,24 @@
     <div class="row">
         <div class="col-md-3">
             <div class="control">
-                <h4>Simuler les conséquences</h4>
+                <div class="well well-sm">
+                    <h4>Simuler les conséquences</h4>
 
-                <form ng-controller="UserController as user">
-                    <div class="radio">
-                        <label class="bg-danger radio-ctrl">
-                            <input type="radio" name="voteState" ng-model="voteState" ng-value="false">
-                            Si je vote non
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label class="bg-success radio-ctrl">
-                            <input type="radio" name="voteState" ng-model="voteState" ng-value="true">
-                            Si je vote oui
-                        </label>
-                    </div>
-                </form>
+                    <form ng-controller="UserController as user">
+                        <div class="radio">
+                            <label class="bg-danger radio-ctrl">
+                                <input type="radio" name="voteState" ng-model="voteState" ng-value="false">
+                                Si je vote non
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label class="bg-success radio-ctrl">
+                                <input type="radio" name="voteState" ng-model="voteState" ng-value="true">
+                                Si je vote oui
+                            </label>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -253,12 +255,31 @@
 <script src="app/app.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+<div id="fb-root"></div>
 <script>
-    $('.control').affix({
+    // Load FB after some time...
+    setTimeout(
+            function () {
+                s = 'script';
+                id = 'facebook-jssdk';
+                d = document;
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=1587196631554813";
+                fjs.parentNode.insertBefore(js, fjs);
+            }, 1500);
+</script>
+
+<script>
+    var $controle = $('.control');
+    $controle.affix({
         offset: {
-            top: $('.control').offset().top
+            top: $controle.offset().top
         }
     });
+
 </script>
 
 </body>
