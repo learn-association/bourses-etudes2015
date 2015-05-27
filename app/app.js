@@ -9,11 +9,25 @@
         ChartJsProvider.setOptions({
             colours: ['#97BBCD', '#DCDCDC', '#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
             responsive: true,
-            animationEasing: "easeOutQuart"
+            // animationEasing: "easeOutQuart",
+            animationSteps: 50,
+            showTooltips: true
         });
         // Configure all doughnut charts
-        ChartJsProvider.setOptions('Doughnut', {
-            animateScale: true
+        ChartJsProvider.setOptions('Doughnut', {});
+
+        ChartJsProvider.setOptions('Bar', {
+            // Boolean - If we want to override with a hard coded scale
+            scaleOverride: true,
+
+            // ** Required if scaleOverride is true **
+            // Number - The number of steps in a hard coded scale
+            scaleSteps: 8,
+            // Number - The value jump in the hard coded scale
+            scaleStepWidth: 2000,
+            // Number - The scale starting value
+            scaleStartValue: 0
+
         });
 
         $translateProvider.translations('en', {});
@@ -63,6 +77,52 @@
         };
     });
 
+    app.controller("ChartCantonController", function ($scope, $rootScope, userService) {
+        $scope.labels = ['LU', 'SG', 'SH', 'VS', 'NE', 'AR', 'UR', 'GR', 'FR', 'TG', 'AI', 'BL', 'NW', 'SZ', 'SO', 'BS', 'JS', 'TI', 'ZG', 'OW', 'BE', 'AG', 'ZH', 'GE', 'GL', 'VD'];
+        $scope.getData = function () {
+            if (userService.voteState) {
+                $scope.data = [
+                    [16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000, 16000]
+                ];
+
+            } else {
+                $scope.data = [
+                    [
+                        5500, // LU
+                        5700, // SG
+                        5000, // SH
+                        5600, // VS
+                        5000, // NE
+                        6300, // AR
+                        6500, // UR
+                        6100, // GR
+                        6500, // FR
+                        7800, // TG
+                        6000, // AI
+                        7900, // BL
+                        7000, // NW
+                        7900, // SZ
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000,
+                        16000
+                    ]
+                ];
+
+            }
+        };
+        $scope.data = $scope.getData();
+
+        $rootScope.$on('userService:voteStateChanged', $scope.getData);
+    });
 
     app.controller("ChartPIBController", function ($scope, $rootScope, userService) {
         $scope.labels = ["Autres", "Education"];
@@ -107,7 +167,7 @@
         ];
         $scope.getData = function () {
             if (userService.voteState) {
-                $scope.data = [8.1, 11.1 - 2.29 , 14.2, 14.8, 51.9, 2.29];
+                $scope.data = [8.1, 11.1 - 2.29, 14.2, 14.8, 51.9, 2.29];
             } else {
                 $scope.data = [8.1, 11.1 - 0.88, 14.2, 14.8, 51.9, 0.88];
             }
@@ -116,7 +176,6 @@
 
         $rootScope.$on('userService:voteStateChanged', $scope.getData);
     });
-
 
 
 })();

@@ -111,7 +111,7 @@
             <div class="col-md-10 head">
                 <p class="lead">
                     Simulation effectuer à partir des statistiques des dépenses de 2012.
-                    Si vous cliquer sur "si je vote oui", la simulation ajoute
+                    En cliquant sur "si je vote oui", la simulation ajoute
                     500 Millions au budget (chiffre avancé par les Conseil fédéral).<br/>
                     <small>Cependant, il semblerait qu'il s'agira plutôt de 200 Millions .</small>
                 </p>
@@ -146,6 +146,28 @@
         </div>
 
         <div class="col-md-9">
+
+
+            <div class="row" ng-controller="ChartCantonController">
+
+                <div class="col-md-12">
+                    <h2>Montant moyen des bourses par bénéficiaire</h2>
+                </div>
+                <div class="col-md-11">
+                    <p>
+                        <canvas id="chartCanton" class="chart chart-bar" data="data"
+                                labels="labels" legend="false"></canvas>
+                    </p>
+                </div>
+                <div class="col-md-7">
+
+                    <p>
+                        Il existe une grandes disparité cantonal dans les bourses allouées.
+                    </p>
+
+                </div>
+
+            </div>
 
 
             <div class="row" ng-controller="ChartPIBController">
