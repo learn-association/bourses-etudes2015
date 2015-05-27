@@ -40,6 +40,10 @@
             top: 0;
         }
 
+        .radio-ctrl {
+            padding: 10px;
+        }
+
     </style>
 
     <!--[if lt IE 9]>
@@ -108,13 +112,13 @@
 
                 <form ng-controller="UserController as user">
                     <div class="radio">
-                        <label>
+                        <label class="bg-danger radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="false">
                             Si je vote non
                         </label>
                     </div>
                     <div class="radio">
-                        <label>
+                        <label class="bg-success radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="true">
                             Si je vote oui
                         </label>
