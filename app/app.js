@@ -39,45 +39,19 @@
 
     // ----- Services -----
 
-    app.factory('userService', ['$rootScope', function ($rootScope) {
-        'use strict';
-        var userService = {
-            voteState: false
-        };
-
-        // add a listener on a key
-        $rootScope.$watch(function () {
-            return userService.voteState;
-        }, function (newValue) {
-            $rootScope.$broadcast('userService:voteStateChanged', newValue);
-        }, true);
-
-        return userService;
-    }]);
 
     // ----- Controllers -----
 
-    app.controller("UserController", function ($scope, userService, $translate) {
+    app.controller("UserController", function ($scope, $translate) {
         var user = this;
-        user.getVoteState = function () {
-            return userService.voteState;
-        };
-        $scope.voteState = userService.voteState;
-
-        $scope.$watch(function ($scope) {
-                return $scope.voteState
-            },
-            function () {
-                userService.voteState = $scope.voteState;
-            }
-        );
 
         $scope.changeLanguage = function (key) {
             $translate.use(key);
         };
     });
 
-    app.controller("ChartCantonController", function ($scope, $rootScope, userService) {
+    app.controller("ChartCantonController", function ($scope) {
+        $scope.voteState = false;
         $scope.labels = [
             'Zurich',
             'Berne'
@@ -106,15 +80,17 @@
             , 'Genève'
             , 'Jura'
         ];
+
         $scope.series = ['Formation professionelles supérieure', 'Haute école'];
-        $scope.getData = function () {
-            if (userService.voteState) {
+
+        $scope.voteYes = function () {
                 $scope.data = [
                     [12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000],
                     [12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000]
                 ];
 
-            } else {
+            };
+        $scope.voteNo = function() {
                 $scope.data = [
                     [
                         10017,
@@ -173,48 +149,79 @@
                         8698
                     ]
                 ];
+        };
 
+        $scope.refreshData = function(){
+            if($scope.voteState){
+                $scope.voteYes();
+            } else {
+                $scope.voteNo();
             }
         };
-        $scope.data = $scope.getData();
 
-        $rootScope.$on('userService:voteStateChanged', $scope.getData);
+        $scope.refreshData();
+
     });
 
-    app.controller("ChartPIBController", function ($scope, $rootScope, userService) {
+    app.controller("ChartPIBController", function ($scope) {
+        $scope.voteState = false;
+
         $scope.labels = ["Autres", "Education"];
-        $scope.getData = function () {
-            if (userService.voteState) {
+
+
+        $scope.voteYes = function () {
                 $scope.investment = 35162;
                 // 5.5656312 %
                 $scope.data = [94.37, 5.63];
-            } else {
+        };
+        $scope.voteNo = function() {
                 $scope.investment = 34662;
                 // 5.54962 %
                 $scope.data = [94.45, 5.55];
-            }
         };
-        $scope.data = $scope.getData();
 
-        $rootScope.$on('userService:voteStateChanged', $scope.getData);
-    });
-    app.controller("ChartPublicInvestmentController", function ($scope, $rootScope, userService) {
-        $scope.labels = ["Autres", "Education"];
-        $scope.getData = function () {
-            if (userService.voteState) {
-                // 17.455954
-                $scope.data = [82.34, 17.66];
+        $scope.refreshData = function(){
+            if($scope.voteState){
+                $scope.voteYes();
             } else {
-                // 17.4057393
-                $scope.data = [82.59, 17.41];
+                $scope.voteNo();
             }
         };
-        $scope.data = $scope.getData();
 
-        $rootScope.$on('userService:voteStateChanged', $scope.getData);
+        $scope.refreshData();
+
+    });
+    app.controller("ChartPublicInvestmentController", function ($scope) {
+        $scope.voteState = false;
+
+        $scope.labels = ["Autres", "Education"];
+
+
+        $scope.voteYes = function () {
+            // 17.455954
+            $scope.data = [82.34, 17.66];
+        };
+        $scope.voteNo = function() {
+            // 17.4057393
+            $scope.data = [82.59, 17.41];
+        };
+
+        $scope.refreshData = function(){
+            if($scope.voteState){
+                $scope.voteYes();
+            } else {
+                $scope.voteNo();
+            }
+        };
+
+        $scope.refreshData();
+
+
     });
 
-    app.controller("ChartPublicInvestmentDetailController", function ($scope, $rootScope, userService) {
+    app.controller("ChartPublicInvestmentDetailController", function ($scope) {
+        $scope.voteState = false;
+
         $scope.labels = ["Investissements",
             "Autres dépenses de fonctionnement",
             "Biens, services et marchandises",
@@ -222,16 +229,23 @@
             "Rémunération enseignants",
             "Bourse d'étude"
         ];
-        $scope.getData = function () {
-            if (userService.voteState) {
-                $scope.data = [8.1, 11.1 - 2.29, 14.2, 14.8, 51.9, 2.29];
-            } else {
+        $scope.voteYes = function () {
+            $scope.data = [8.1, 11.1 - 2.29, 14.2, 14.8, 51.9, 2.29];
+        };
+        $scope.voteNo = function() {
                 $scope.data = [8.1, 11.1 - 0.88, 14.2, 14.8, 51.9, 0.88];
+        };
+
+        $scope.refreshData = function(){
+            if($scope.voteState){
+                $scope.voteYes();
+            } else {
+                $scope.voteNo();
             }
         };
-        $scope.data = $scope.getData();
 
-        $rootScope.$on('userService:voteStateChanged', $scope.getData);
+        $scope.refreshData();
+
     });
 
 
