@@ -105,9 +105,13 @@
             </a>
 
 
+
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a ng-click="changeLanguage('en')" class="ng-scope btn">English</a>
@@ -119,6 +123,11 @@
                     <a ng-click="changeLanguage('fr')" class="ng-scope btn">Français</a>
                 </li>
             </ul>
+
+                <div class="navbar-text fb-like" data-href="http://stipendieninitiative.learn-association.ch/"
+                     data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+
+
         </div>
         <!--/.nav-collapse -->
     </div>
@@ -128,13 +137,7 @@
 <header class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <p>
 
-                <div class="fb-like" data-href="http://stipendieninitiative.learn-association.ch/"
-                     data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-                </p>
-            </div>
             <div class="col-md-12">
                 <h1>
                     Initiative sur les bourses d'études. Quelles conséquences?
@@ -150,6 +153,7 @@
                     </small>
                 </p>
             </div>
+
         </div>
     </div>
 </header>
@@ -268,7 +272,7 @@
                     <p>
                         En cas d'acceptation de l'initiative, le montant investi augmenterait légèrement de 5.55 à 5.63%
                         du PIB. En moyenne, les pays de l'OCDE investissent 5.8% de leur PIB dans l'éducation.
-                        Certains pays, comme le Danemark et la Norvège, investissent plus de 8% de leur PIB dans la formation.
+                        Certains pays, comme le Danemark et la Norvège, investissent près de 9% de leur PIB dans la formation.
                     </p>
 
                     <p>
@@ -399,10 +403,16 @@
 
 
     </div>
-
     <!-- FB comment -->
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
+            <p>
+
+            <div class="fb-like" data-href="http://stipendieninitiative.learn-association.ch/"
+                 data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+            </p>
+        </div>
+        <div class="col-md-8">
             <div class="fb-comments" data-href="http://stipendieninitiative.learn-association.ch" data-width="100%"
                  data-numposts="5" data-colorscheme="light"></div>
         </div>
@@ -411,8 +421,8 @@
 
     <footer class="row">
         <div class="col-md-12">
-            <p class="pull-right">By <a href="mailto:perdrisat@gmail.com">Simon Perdrisat</a> – <a
-                    href="https://github.com/learn-association/bourses-etudes2015/issues">Report a problem</a></p>
+            <p class="pull-right">By <a href="mailto:perdrisat+bourses2015@gmail.com">Simon Perdrisat</a> – <a
+                    href="https://github.com/learn-association/bourses-etudes2015">Project on github</a></p>
         </div>
     </footer>
 
