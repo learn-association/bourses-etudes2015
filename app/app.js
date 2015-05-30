@@ -33,7 +33,7 @@
         $translateProvider.translations('en', {});
         $translateProvider.translations('fr', {});
         $translateProvider.translations('de', {});
-        $translateProvider.preferredLanguage('en');
+        $translateProvider.preferredLanguage('fr');
 
     });
 
@@ -46,6 +46,7 @@
         var user = this;
 
         $scope.changeLanguage = function (key) {
+            alert('Translation is not available for the moment. Thanks for your understanding. If you want to help: https://github.com/learn-association/bourses-etudes2015/issues');
             $translate.use(key);
         };
     });
