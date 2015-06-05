@@ -178,7 +178,9 @@
 
         <div class="col-md-12">
             <h2>
-                Montant moyen des bourses par bénéficiaire
+                Montant moyen des bourses par bénéficiaire. <br/>
+                <small ng-if="!voteState">Les critères et les montants ne sont pas harmonisés.</small>
+                <small ng-if="voteState">L'initiative assure un minimum vital, calculé en fonction des coûts de la formation et du lieu d'étude.</small>
             </h2>
         </div>
 
@@ -225,6 +227,9 @@
 
                     <p>
                         Pourtant ces étudiants de différent cantons se retrouvent souvent dans les mêmes écoles!
+                    </p>
+                    <p>
+                      <small>En cas de oui, le montant moyen pourrait différer d'un canton à l'autre, mais sur des critères harmonisés</small>
                     </p>
 
                     <p>
@@ -364,7 +369,7 @@
 
 
         <div class="col-md-12">
-            <h2>Répartition du montant des dépenses publique dans l'éducation</h2>
+            <h2>Répartition du montant des dépenses publiques dans l'éducation</h2>
         </div>
         <!--form -->
         <div class="col-md-7">
@@ -434,8 +439,29 @@
 
     <footer class="row">
         <div class="col-md-12">
-            <p class="pull-right">By <a href="mailto:perdrisat+bourses2015@gmail.com">Simon Perdrisat</a> – <a
+            <br />
+            <p class="">By <a href="mailto:perdrisat+bourses2015@gmail.com">Simon Perdrisat</a> – <a
                     href="https://github.com/learn-association/bourses-etudes2015">Project on github</a></p>
+        </div>
+        <div class="col-md-12">
+
+            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+                <a rel="license"
+                   href="http://creativecommons.org/publicdomain/zero/1.0/">
+                    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+                </a>
+                <br />
+                To the extent possible under law,
+                <a rel="dct:publisher"
+                   href="http://www.linkedin.com/in/simonperdrisat">
+                    <span property="dct:title">Perdrisat Simon</span></a>
+                has waived all copyright and related or neighboring rights to
+                <span property="dct:title">Initiative sur les bourses d'études. Quelles conséquences?</span>.
+                This work is published from:
+<span property="vcard:Country" datatype="dct:ISO3166"
+      content="CH" about="http://stipendieninitiative.learn-association.ch/">
+  Switzerland</span>.
+            </p>
         </div>
     </footer>
 
