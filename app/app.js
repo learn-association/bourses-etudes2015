@@ -4,7 +4,7 @@
 
     var app = angular.module("app", ["chart.js", 'ui.bootstrap', 'pascalprecht.translate']);
 
-    app.config(function (ChartJsProvider, $translateProvider) {
+    app.config(function (ChartJsProvider, $translateProvider, $locationProvider) {
         // Configure all charts
         ChartJsProvider.setOptions({
             colours: ['#97BBCD', '#DCDCDC', '#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
@@ -35,20 +35,32 @@
         $translateProvider.translations('de', {});
         $translateProvider.preferredLanguage('fr');
 
+        $locationProvider.html5Mode(false).hashPrefix('!');
+
     });
+
+
 
     // ----- Services -----
 
 
     // ----- Controllers -----
 
-    app.controller("UserController", function ($scope, $translate) {
-        var user = this;
+    app.controller("UserController", function ($scope, $translate, $location) {
 
-        $scope.changeLanguage = function (key) {
-            alert('Translation is not available for the moment. Thanks for your understanding. If you want to help: https://github.com/learn-association/bourses-etudes2015/issues');
-            $translate.use(key);
-        };
+        $scope.$on('$locationChangeStart', function(event) {
+            var search = $location.search();
+            $translate.use(search['lang']);
+        });
+
+
+        if(typeof search['lang'] == 'undefined') {
+            $location.path('/').search({'lang' : 'fr'}).replace();
+        } else {
+            var search = $location.search();
+            $translate.use(search['lang']);
+        }
+
     });
 
     app.controller("ChartCantonController", function ($scope) {

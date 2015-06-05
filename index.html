@@ -11,8 +11,8 @@
     <meta property="og:type"   content="article">
     <meta property="fb:app_id" content="1587196631554813">
 
-
-
+    <base href=".">
+    <meta name="fragment" content="!" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>
         Initiative sur les bourses d'études. Quelles conséquences?
@@ -113,7 +113,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 Initiative sur les bourses d'études.
             </a>
 
@@ -127,13 +127,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a ng-click="changeLanguage('en')" class="ng-scope btn">English</a>
+                    <a href="#!/?lang=de" class="btn">Deutsch</a>
                 </li>
                 <li>
-                    <a ng-click="changeLanguage('de')" class="ng-scope btn">Deutsch</a>
-                </li>
-                <li>
-                    <a ng-click="changeLanguage('fr')" class="ng-scope btn">Français</a>
+                    <a href="#!/?lang=fr" class="btn">Français</a>
                 </li>
             </ul>
 
