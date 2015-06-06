@@ -36,6 +36,14 @@
             WHAT_IF: "Que se passe-t-il?",
             IF_NO: "Si je vote non",
             IF_YES: "Si je vote oui",
+            OTHERS:  "Autres",
+            EDUCATION: "Education",
+            INVESTMENT: "Investissements",
+            OTHER_SPENDING: "Autres dépenses de fonctionnement",
+            GOOD_AND_COMMODITY: "Biens, services et marchandises",
+            OTHER_SALARY: "Rémunération autre personnel",
+            TEACHERS_SALARY: "Rémunération enseignants",
+            STUDY_GRANT: "Bourse d'étude",
             CHART1_TITLE: 'Montant moyen des bourses par bénéficiaire.',
             CHART1_SUB_TITLE_1: "Les critères et les montants ne sont pas harmonisés.",
             CHART1_SUB_TITLE_2: "L'initiative assure un minimum vital, calculé en fonction des coûts de la formation et du lieu d'étude.",
@@ -82,6 +90,14 @@
             WHAT_IF: "Was passiert wenn…",
             IF_NO: "…ich Nein stimme?",
             IF_YES: "…ich Ja stimme?",
+            OTHERS:  "Andere",
+            EDUCATION: "Bildung",
+            INVESTMENT: "Investitionen",
+            OTHER_SPENDING: "Sonstige betriebliche Aufwendungen",
+            GOOD_AND_COMMODITY: "Dienstleistungen und Waren",
+            OTHER_SALARY: "Entschädigung anderes Personal",
+            TEACHERS_SALARY: "Entschädigung Lehrer",
+            STUDY_GRANT: "Stipendien",
             CHART1_TITLE: 'Durchschnitsbetrag pro StipendienempfängerIn',
             CHART1_SUB_TITLE_1: "Die Kriterien und Beträge sind nicht harmonisiert.",
             CHART1_SUB_TITLE_2: "L'initiative assure un minimum vital, calculé en fonction des coûts de la formation et du lieu d'étude.",
@@ -149,7 +165,7 @@
 
     });
 
-    app.controller("ChartCantonController", function ($scope) {
+    app.controller("ChartCantonController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
         $scope.labels = [
             'Zurich',
@@ -180,7 +196,11 @@
             , 'Jura'
         ];
 
-        $scope.series = ['Formation professionelles supérieure', 'Haute école'];
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate(['CHART1_LAB_PRO_SCHOOl', 'CHART1_LAB_H_SCHOOL']).then(function (translations) {
+                $scope.series = [translations.CHART1_LAB_PRO_SCHOOl, translations.CHART1_LAB_H_SCHOOL];
+            });
+        });
 
         $scope.voteYes = function () {
             $scope.data = [
@@ -262,11 +282,16 @@
 
     });
 
-    app.controller("ChartPIBController", function ($scope) {
+    app.controller("ChartPIBController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
 
         $scope.labels = ["Autres", "Education"];
 
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate(['OTHERS', 'EDUCATION']).then(function (translations) {
+                $scope.labels = [translations.OTHERS, translations.EDUCATION];
+            });
+        });
 
         $scope.voteYes = function () {
             $scope.investment = 35162;
@@ -290,10 +315,14 @@
         $scope.refreshData();
 
     });
-    app.controller("ChartPublicInvestmentController", function ($scope) {
+    app.controller("ChartPublicInvestmentController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
 
-        $scope.labels = ["Autres", "Education"];
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate(['OTHERS', 'EDUCATION']).then(function (translations) {
+                $scope.labels = [translations.OTHERS, translations.EDUCATION];
+            });
+        });
 
 
         $scope.voteYes = function () {
@@ -318,16 +347,24 @@
 
     });
 
-    app.controller("ChartPublicInvestmentDetailController", function ($scope) {
+    app.controller("ChartPublicInvestmentDetailController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
 
-        $scope.labels = ["Investissements",
-            "Autres dépenses de fonctionnement",
-            "Biens, services et marchandises",
-            "Rémunération autre personnel",
-            "Rémunération enseignants",
-            "Bourse d'étude"
-        ];
+
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate(['INVESTMENT', 'OTHER_SPENDING', 'GOOD_AND_COMMODITY', 'OTHER_SALARY', 'TEACHERS_SALARY', 'STUDY_GRANT']).then(function (translations) {
+                $scope.labels = [
+                    translations.INVESTMENT,
+                    translations.OTHER_SPENDING,
+                    translations.GOOD_AND_COMMODITY,
+                    translations.OTHER_SALARY,
+                    translations.TEACHERS_SALARY,
+                    translations.STUDY_GRANT
+                ];
+            });
+        });
+
+
         $scope.voteYes = function () {
             $scope.data = [8.1, 11.1 - 2.29, 14.2, 14.8, 51.9, 2.29];
         };
