@@ -30,9 +30,36 @@
 
         });
 
-        $translateProvider.translations('en', {});
-        $translateProvider.translations('fr', {});
-        $translateProvider.translations('de', {});
+        $translateProvider.translations('fr', {
+            SITE_TITLE: "Initiative sur les bourses d'études. Quelles conséquences?",
+            MAIN_TITLE: "Initiative sur les bourses d'études. Quelles conséquences?",
+            LEAD: 'En cliquant sur <em>"si je vote oui"</em>, la simulation prend en compte le coût de 500 millions avancé par les Conseil fédéral <small>(les dernières estimations avancent un chiffre de 120 millions). Simulation effectuée à partir des statistiques des dépenses de 2012-2013. </small>',
+            WHAT_IF: "Que se passe-t-il?",
+            IF_NO: "Si je vote non",
+            IF_YES: "Si je vote oui",
+            CHART1_TITLE: 'Montant moyen des bourses par bénéficiaire.',
+            CHART1_SUB_TITLE_1: "Les critères et les montants ne sont pas harmonisés.",
+            CHART1_SUB_TITLE_2: "L'initiative assure un minimum vital, calculé en fonction des coûts de la formation et du lieu d'étude.",
+            CHART1_LAB_PRO_SCHOOl: "Formation professionelles supérieure",
+            CHART1_LAB_H_SCHOOL: "Haute école",
+            CHART1_BODY: "<p> \
+            Les bourses d’études varient fortement selon les cantons. Dans le canton de Zurich 0.3% de \
+            la population reçoit en moyenne 3’800 francs par semestre pendant qu’à Neuchâtel 1% de la \
+            population du canton touche en moyenne 1200 francs par semestre. \
+            </p><p> \
+            Pourtant ces étudiants de différent cantons se retrouvent souvent dans les mêmes écoles!\
+            </p><p>\
+            <small>En cas de oui, le montant moyen pourrait différer d'un canton à l'autre, mais sur des critères harmonisés</small> \
+            </p><p> \
+            <small>Source:  \
+            <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'>\
+            Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>",
+            CHART2_TITLE: "La Suisse investit {{investment}} millions, soit {{pourcentage}} du PIB dans l'éducation"
+        });
+        $translateProvider.translations('de', {
+            MAIN_TITLE: 'Stipendieninitiative. Was wären die Folgen?',
+            LEAD: 'Bei einem Klick auf <em>"Wenn ich ja stimme"</em> berücksichtig die Simulation die vom Bundesrat veranschlagten  Kosten von 500 Millionen <small>(die neusten Schätzungen beziffern die Kosten mit 120  Millionen). Die Simulation stützt sich auf Ausgabestatistiken der Jahre 2013-2013.</small>'
+        });
         $translateProvider.preferredLanguage('fr');
 
         $locationProvider.html5Mode(false).hashPrefix('!');
@@ -53,11 +80,11 @@
             $translate.use(search['lang']);
         });
 
+        var search = $location.search();
 
         if(typeof search['lang'] == 'undefined') {
             $location.path('/').search({'lang' : 'fr'}).replace();
         } else {
-            var search = $location.search();
             $translate.use(search['lang']);
         }
 

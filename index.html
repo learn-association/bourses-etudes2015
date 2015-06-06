@@ -8,15 +8,13 @@
     <meta property="og:url" content="http://stipendieninitiative.learn-association.ch/">
     <meta property="og:image" content="http://stipendieninitiative.learn-association.ch/chart2.png">
     <meta property="og:description" content="Testez les conséquences de l'initiative!">
-    <meta property="og:type"   content="article">
+    <meta property="og:type" content="article">
     <meta property="fb:app_id" content="1587196631554813">
 
     <base href=".">
-    <meta name="fragment" content="!" />
+    <meta name="fragment" content="!"/>
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>
-        Initiative sur les bourses d'études. Quelles conséquences?
-    </title>
+    <title translate="SITE_TITLE">Initiative sur les bourses d'études. Quelles conséquences?</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
@@ -118,7 +116,6 @@
             </a>
 
 
-
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
@@ -134,8 +131,8 @@
                 </li>
             </ul>
 
-                <div class="navbar-text fb-like" data-href="http://stipendieninitiative.learn-association.ch"
-                     data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
+            <div class="navbar-text fb-like" data-href="http://stipendieninitiative.learn-association.ch"
+                 data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
 
 
         </div>
@@ -149,19 +146,11 @@
         <div class="row">
 
             <div class="col-md-12">
-                <h1>
-                    Initiative sur les bourses d'études. Quelles conséquences?
-                </h1>
+                <h1 translate="MAIN_TITLE"></h1>
 
             </div>
             <div class="col-md-10 head">
-                <p class="lead">
-                    En cliquant sur <em>"si je vote oui"</em>, la simulation prend en compte le coût de
-                    500 millions avancé par les Conseil fédéral
-                    <small>(les dernières estimations avancent un chiffre de 120 millions).
-                        Simulation effectuée à partir des statistiques des dépenses de 2012-2013.
-                    </small>
-                </p>
+                <p class="lead" translate="LEAD"></p>
             </div>
 
         </div>
@@ -174,10 +163,9 @@
     <div class="row" ng-controller="ChartCantonController">
 
         <div class="col-md-12">
-            <h2>
-                Montant moyen des bourses par bénéficiaire. <br/>
-                <small ng-if="!voteState">Les critères et les montants ne sont pas harmonisés.</small>
-                <small ng-if="voteState">L'initiative assure un minimum vital, calculé en fonction des coûts de la formation et du lieu d'étude.</small>
+            <h2><span translate="CHART1_TITLE"></span><br/>
+                <small ng-if="!voteState"><span translate="CHART1_SUB_TITLE_1"></span></small>
+                <small ng-if="voteState"><span translate="CHART1_SUB_TITLE_2"></span></small>
             </h2>
         </div>
 
@@ -185,20 +173,20 @@
         <div class="col-md-6">
             <form class="form-inline">
                 <div class="form-group">
-                    <label class="control-label">Que se passe-t-il?</label>
+                    <label class="control-label" translate="WHAT_IF"></label>
 
                     <div class="radio">
                         <label class="bg-danger radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="false"
                                    ng-change="refreshData()">
-                            Si je vote non
+                            <span translate="IF_NO"></span>
                         </label>
                     </div>
                     <div class="radio">
                         <label class="bg-success radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="true"
                                    ng-change="refreshData()">
-                            Si je vote oui
+                            <span translate="IF_YES"></span>
                         </label>
                     </div>
                 </div>
@@ -215,27 +203,7 @@
                     </div>
                 </div>
 
-                <div class="caption">
-                    <p>
-                        Les bourses d’études varient fortement selon les cantons. Dans le canton de Zurich 0.3% de
-                        la population reçoit en moyenne 3’800 francs par semestre pendant qu’à Neuchâtel 1% de la
-                        population du canton touche en moyenne 1200 francs par semestre.
-                    </p>
-
-                    <p>
-                        Pourtant ces étudiants de différent cantons se retrouvent souvent dans les mêmes écoles!
-                    </p>
-                    <p>
-                      <small>En cas de oui, le montant moyen pourrait différer d'un canton à l'autre, mais sur des critères harmonisés</small>
-                    </p>
-
-                    <p>
-                        <small>Source: <a
-                                href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html">Statistique
-                            Suisse – Système d'éducation - Données détaillées</a>
-                        </small>
-                    </p>
-                </div>
+                <div class="caption" translate="CHART1_BODY"></div>
             </div>
 
         </div>
@@ -246,27 +214,26 @@
     <div class="row" ng-controller="ChartPIBController">
 
         <div class="col-md-12">
-            <h2>La Suisse investit {{investment | number}} millions, soit {{ data[1] }}% du PIB dans
-                l'éducation</h2>
+            <h2 translate="CHART2_TITLE" translate-values='{ investment: investment}, pourcentage: data[1]}'></h2>
         </div>
         <!--form -->
         <div class="col-md-7">
             <form class="form-inline">
                 <div class="form-group">
-                    <label class="control-label">Que se passe-t-il?</label>
+                    <label class="control-label" translate="WHAT_IF"></label>
 
                     <div class="radio">
                         <label class="bg-danger radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="false"
                                    ng-change="refreshData()">
-                            Si je vote non
+                            <span translate="IF_NO"></span>
                         </label>
                     </div>
                     <div class="radio">
                         <label class="bg-success radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="true"
                                    ng-change="refreshData()">
-                            Si je vote oui
+                            <span translate="IF_YES"></span>
                         </label>
                     </div>
                 </div>
@@ -287,13 +254,15 @@
                     <p>
                         En cas d'acceptation de l'initiative, le montant investi augmenterait légèrement de 5.55 à 5.63%
                         du PIB. En moyenne, les pays de l'OCDE investissent 5.8% de leur PIB dans l'éducation.
-                        Certains pays, comme le Danemark et la Norvège, investissent près de 9% de leur PIB dans la formation.
+                        Certains pays, comme le Danemark et la Norvège, investissent près de 9% de leur PIB dans la
+                        formation.
                     </p>
 
                     <p>
                         <small>Source: <a
                                 href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/17/blank/01.indicator.402101.4012.html?open=1,520#520">Statistique
-                            Suisse – Dépenses publiques d’éducation</a> et <a href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/22/publ.html?publicationID=6359">
+                            Suisse – Dépenses publiques d’éducation</a> et <a
+                                href="http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/22/publ.html?publicationID=6359">
                             Finances du système éducatif - Edition 2014
                         </a>
                         </small>
@@ -316,20 +285,20 @@
         <div class="col-md-12">
             <form class="form-inline">
                 <div class="form-group">
-                    <label class="control-label">Que se passe-t-il?</label>
+                    <label class="control-label" translate="WHAT_IF"></label>
 
                     <div class="radio">
                         <label class="bg-danger radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="false"
                                    ng-change="refreshData()">
-                            Si je vote non
+                            <span translate="IF_NO"></span>
                         </label>
                     </div>
                     <div class="radio">
                         <label class="bg-success radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="true"
                                    ng-change="refreshData()">
-                            Si je vote oui
+                            <span translate="IF_YES"></span>
                         </label>
                     </div>
                 </div>
@@ -372,20 +341,20 @@
         <div class="col-md-7">
             <form class="form-inline">
                 <div class="form-group">
-                    <label class="control-label">Que se passe-t-il?</label>
+                    <label class="control-label" translate="WHAT_IF"></label>
 
                     <div class="radio">
                         <label class="bg-danger radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="false"
                                    ng-change="refreshData()">
-                            Si je vote non
+                            <span translate="IF_NO"></span>
                         </label>
                     </div>
                     <div class="radio">
                         <label class="bg-success radio-ctrl">
                             <input type="radio" name="voteState" ng-model="voteState" ng-value="true"
                                    ng-change="refreshData()">
-                            Si je vote oui
+                            <span translate="IF_YES"></span>
                         </label>
                     </div>
                 </div>
@@ -432,7 +401,8 @@
 
     <footer class="row">
         <div class="col-md-12">
-            <br />
+            <br/>
+
             <p class="">By <a href="mailto:perdrisat+bourses2015@gmail.com">Simon Perdrisat</a> – <a
                     href="https://github.com/learn-association/bourses-etudes2015">Project on github</a></p>
         </div>
@@ -441,9 +411,9 @@
             <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
                 <a rel="license"
                    href="http://creativecommons.org/publicdomain/zero/1.0/">
-                    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+                    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0"/>
                 </a>
-                <br />
+                <br/>
                 To the extent possible under law,
                 <a rel="dct:publisher"
                    href="http://www.linkedin.com/in/simonperdrisat">
