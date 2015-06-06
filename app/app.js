@@ -54,7 +54,28 @@
             <small>Source:  \
             <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'>\
             Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>",
-            CHART2_TITLE: "La Suisse investit {{investment}} millions, soit {{pourcentage}} du PIB dans l'éducation"
+            CHART2_TITLE: "La Suisse investit {{investment}} millions, soit {{pourcentage}} du PIB dans l'éducation",
+            CHART2_BODY: "<p> \
+            En cas d'acceptation de l'initiative, le montant investi augmenterait légèrement de 5.55 à 5.63% \
+            du PIB. En moyenne, les pays de l'OCDE investissent 5.8% de leur PIB dans l'éducation. \
+            Certains pays, comme le Danemark et la Norvège, investissent près de 9% de leur PIB dans la \
+            formation. \
+            </p><p> \
+            <small>Source: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/17/blank/01.indicator.402101.4012.html?open=1,520#520'> \
+            Statistique Suisse – Dépenses publiques d’éducation</a> et <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/22/publ.html?publicationID=6359'> \
+            Finances du système éducatif - Edition 2014 \
+            </a></small></p>",
+            CHART3_TITLE : "L'éducation représente {{pourcent}}% des dépenses publiques",
+            CHART3_BODY : "<p> \
+            En cas d'acception de l'initiative, l'argent public investi dans l'éducation augmenterait \
+            légèrement de 17.41 % à 17.46%. \
+            </p><p> \
+            <small>Source: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'> \
+            Statistique Suisse – Système d'éducation - Données détaillées</a> \
+            </small></p>",
+            CHART4_TITLE :"Répartition du montant des dépenses publiques dans l'éducation",
+            CHART4_BODY: "<p> <small>Source: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'> \
+            Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>",
         });
         $translateProvider.translations('de', {
             MAIN_TITLE: 'Stipendieninitiative. Was wären die Folgen?',
