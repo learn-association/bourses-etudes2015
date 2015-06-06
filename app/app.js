@@ -36,7 +36,7 @@
             WHAT_IF: "Que se passe-t-il?",
             IF_NO: "Si je vote non",
             IF_YES: "Si je vote oui",
-            OTHERS:  "Autres",
+            OTHERS: "Autres",
             EDUCATION: "Education",
             INVESTMENT: "Investissements",
             OTHER_SPENDING: "Autres dépenses de fonctionnement",
@@ -90,7 +90,7 @@
             WHAT_IF: "Was passiert wenn…",
             IF_NO: "…ich Nein stimme?",
             IF_YES: "…ich Ja stimme?",
-            OTHERS:  "Andere",
+            OTHERS: "Andere",
             EDUCATION: "Bildung",
             INVESTMENT: "Investitionen",
             OTHER_SPENDING: "Sonstige betriebliche Aufwendungen",
@@ -148,7 +148,7 @@
 
     // ----- Controllers -----
 
-    app.controller("UserController", function ($scope, $translate, $location) {
+    app.controller("UserController", function ($scope, $rootScope, $translate, $location) {
 
         $scope.$on('$locationChangeStart', function (event) {
             var search = $location.search();
@@ -163,13 +163,19 @@
             $translate.use(search['lang']);
         }
 
+        $rootScope.$on('$translateChangeSuccess', function () {
+            $translate(['MAIN_TITLE', 'CHART1_LAB_H_SCHOOL']).then(function (translations) {
+                document.title = translations.MAIN_TITLE;
+            });
+        });
+
     });
 
     app.controller("ChartCantonController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
         $scope.labels = [
-            'Zurich',
-            'Berne'
+            'Zurich'
+            , 'Berne'
             , 'Lucerne'
             , 'Uri'
             , 'Schwyz'
@@ -285,7 +291,7 @@
     app.controller("ChartPIBController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
 
-        $scope.labels = ["Autres", "Education"];
+        $scope.labels = ["", ""];
 
         $rootScope.$on('$translateChangeSuccess', function () {
             $translate(['OTHERS', 'EDUCATION']).then(function (translations) {
@@ -317,6 +323,8 @@
     });
     app.controller("ChartPublicInvestmentController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
+
+        $scope.labels = ["", ""];
 
         $rootScope.$on('$translateChangeSuccess', function () {
             $translate(['OTHERS', 'EDUCATION']).then(function (translations) {
@@ -350,6 +358,7 @@
     app.controller("ChartPublicInvestmentDetailController", function ($scope, $rootScope, $translate) {
         $scope.voteState = false;
 
+        $scope.labels = ["", "", "", "" , "", ""];
 
         $rootScope.$on('$translateChangeSuccess', function () {
             $translate(['INVESTMENT', 'OTHER_SPENDING', 'GOOD_AND_COMMODITY', 'OTHER_SALARY', 'TEACHERS_SALARY', 'STUDY_GRANT']).then(function (translations) {
