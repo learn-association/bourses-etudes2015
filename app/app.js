@@ -31,7 +31,6 @@
         });
 
         $translateProvider.translations('fr', {
-            SITE_TITLE: "Initiative sur les bourses d'études. Quelles conséquences?",
             MAIN_TITLE: "Initiative sur les bourses d'études. Quelles conséquences?",
             LEAD: 'En cliquant sur <em>"si je vote oui"</em>, la simulation prend en compte le coût de 500 millions avancé par les Conseil fédéral <small>(les dernières estimations avancent un chiffre de 120 millions). Simulation effectuée à partir des statistiques des dépenses de 2012-2013. </small>',
             WHAT_IF: "Que se passe-t-il?",
@@ -65,28 +64,67 @@
             Statistique Suisse – Dépenses publiques d’éducation</a> et <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/22/publ.html?publicationID=6359'> \
             Finances du système éducatif - Edition 2014 \
             </a></small></p>",
-            CHART3_TITLE : "L'éducation représente {{pourcent}}% des dépenses publiques",
-            CHART3_BODY : "<p> \
+            CHART3_TITLE: "L'éducation représente {{pourcent}}% des dépenses publiques",
+            CHART3_BODY: "<p> \
             En cas d'acception de l'initiative, l'argent public investi dans l'éducation augmenterait \
             légèrement de 17.41 % à 17.46%. \
             </p><p> \
             <small>Source: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'> \
             Statistique Suisse – Système d'éducation - Données détaillées</a> \
             </small></p>",
-            CHART4_TITLE :"Répartition du montant des dépenses publiques dans l'éducation",
+            CHART4_TITLE: "Répartition du montant des dépenses publiques dans l'éducation",
             CHART4_BODY: "<p> <small>Source: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'> \
-            Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>",
+            Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>"
         });
         $translateProvider.translations('de', {
             MAIN_TITLE: 'Stipendieninitiative. Was wären die Folgen?',
-            LEAD: 'Bei einem Klick auf <em>"Wenn ich ja stimme"</em> berücksichtig die Simulation die vom Bundesrat veranschlagten  Kosten von 500 Millionen <small>(die neusten Schätzungen beziffern die Kosten mit 120  Millionen). Die Simulation stützt sich auf Ausgabestatistiken der Jahre 2013-2013.</small>'
+            LEAD: 'Bei einem Klick auf <em>"Wenn ich ja stimme"</em> berücksichtig die Simulation die vom Bundesrat veranschlagten  Kosten von 500 Millionen <small>(die neusten Schätzungen beziffern die Kosten mit 120  Millionen). Die Simulation stützt sich auf Ausgabestatistiken der Jahre 2013-2013.</small>',
+            WHAT_IF: "Was passiert wenn…",
+            IF_NO: "…ich Nein stimme?",
+            IF_YES: "…ich Ja stimme?",
+            CHART1_TITLE: 'Durchschnitsbetrag pro StipendienempfängerIn',
+            CHART1_SUB_TITLE_1: "Die Kriterien und Beträge sind nicht harmonisiert.",
+            CHART1_SUB_TITLE_2: "L'initiative assure un minimum vital, calculé en fonction des coûts de la formation et du lieu d'étude.",
+            CHART1_LAB_PRO_SCHOOl: "Höhere Berufsbildung",
+            CHART1_LAB_H_SCHOOL: "Hochschule",
+            CHART1_BODY: "<p> \
+            Die Stipendien varieren sehr stark von Kanton zu Kanton. Im Kanton Zürich erhalten 0.3% der \
+            Bevölkerung einen Durchschnittsbetrag von 3800CHF pro Semester, während in Neuenburg 1% der \
+            Bevölkerung einen Durchschnittsbetrag von 1200CHF erhalten. \
+            </p><p> \
+            Trotzdem finden sich die Studierenden aus verschiedenen Kantonen in denselben Schulen wieder!\
+            </p><p>\
+            <small>Im Falle einer Annahme der  könnte der Durchschnittsbetrag zwischen zwei Kantonen unterschiedlich sein, aber mit harmonisierten Kriterien.</small> \
+            </p><p> \
+            <small>Quelle:  \
+            <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'>\
+            Statistik Schweiz - Bildungssystem - Detaillierte Daten</a></small></p>",
+            CHART2_TITLE: "Die Schweiz investiert {{investment}} Millionen, das sind {{pourcentage}}% des BIP, in Bildung",
+            CHART2_BODY: "<p> \
+            Im Falle einer Annahme der Stipendieninitiative steigt der investierte Betrag von 5.55% auf 5.63% \
+            des BIPs. Im Durchschnitt investieren OECD Länder 5.8% ihres BIPs in Bildung. \
+            Eine Länder, wie Dänemark oder Norwegen investieren fast 9% ihres BIPs in die Bildung \
+            </p><p> \
+            <small>Quelle: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/17/blank/01.indicator.402101.4012.html?open=1,520#520'> \
+            Statistik Schweiz – Dépenses publiques d’éducation</a> et <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/22/publ.html?publicationID=6359'> \
+            Finances du système éducatif - Edition 2014 \
+            </a></small></p>",
+            CHART3_TITLE: "Die Ausgaben für Bildung machen {{pourcent}}% der öffentlichen Ausgaben aus.",
+            CHART3_BODY: "<p> \
+            Im Falle einer Annahme der Initiatice, würden die öffentlichen Ausgaben welche auf die Bildung entfallen von 17.41% auf 17.46% steigen. \
+            </p><p> \
+            <small>Quelle: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'> \
+            Statistik Schweiz – Système d'éducation - Données détaillées</a> \
+            </small></p>",
+            CHART4_TITLE: "Verteilung der öffentlichen Ausgaben in der Bildung",
+            CHART4_BODY: "<p> <small>Quelle: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'> \
+            Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>"
         });
         $translateProvider.preferredLanguage('fr');
 
         $locationProvider.html5Mode(false).hashPrefix('!');
 
     });
-
 
 
     // ----- Services -----
@@ -96,15 +134,15 @@
 
     app.controller("UserController", function ($scope, $translate, $location) {
 
-        $scope.$on('$locationChangeStart', function(event) {
+        $scope.$on('$locationChangeStart', function (event) {
             var search = $location.search();
             $translate.use(search['lang']);
         });
 
         var search = $location.search();
 
-        if(typeof search['lang'] == 'undefined') {
-            $location.path('/').search({'lang' : 'fr'}).replace();
+        if (typeof search['lang'] == 'undefined') {
+            $location.path('/').search({'lang': 'fr'}).replace();
         } else {
             $translate.use(search['lang']);
         }
@@ -145,75 +183,75 @@
         $scope.series = ['Formation professionelles supérieure', 'Haute école'];
 
         $scope.voteYes = function () {
-                $scope.data = [
-                    [12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000],
-                    [12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000]
-                ];
+            $scope.data = [
+                [12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000],
+                [12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000, 12000]
+            ];
 
-            };
-        $scope.voteNo = function() {
-                $scope.data = [
-                    [
-                        10017,
-                        8861,
-                        4864,
-                        7565,
-                        7481,
-                        5207,
-                        6519,
-                        7969,
-                        8336,
-                        6740,
-                        6532,
-                        6554,
-                        7647,
-                        4504,
-                        7320,
-                        3890,
-                        5324,
-                        6409,
-                        7382,
-                        7572,
-                        6572,
-                        13994,
-                        4808,
-                        4003,
-                        9593,
-                        6862
-                    ],
-                    [
-                        9985,
-                        9192,
-                        5956,
-                        6621,
-                        8356,
-                        10560,
-                        9053,
-                        10552,
-                        9120,
-                        7037,
-                        7360,
-                        7070,
-                        7024,
-                        6071,
-                        6593,
-                        7840,
-                        6244,
-                        6564,
-                        10119,
-                        7360,
-                        9310,
-                        11268,
-                        6630,
-                        6628,
-                        9978,
-                        8698
-                    ]
-                ];
+        };
+        $scope.voteNo = function () {
+            $scope.data = [
+                [
+                    10017,
+                    8861,
+                    4864,
+                    7565,
+                    7481,
+                    5207,
+                    6519,
+                    7969,
+                    8336,
+                    6740,
+                    6532,
+                    6554,
+                    7647,
+                    4504,
+                    7320,
+                    3890,
+                    5324,
+                    6409,
+                    7382,
+                    7572,
+                    6572,
+                    13994,
+                    4808,
+                    4003,
+                    9593,
+                    6862
+                ],
+                [
+                    9985,
+                    9192,
+                    5956,
+                    6621,
+                    8356,
+                    10560,
+                    9053,
+                    10552,
+                    9120,
+                    7037,
+                    7360,
+                    7070,
+                    7024,
+                    6071,
+                    6593,
+                    7840,
+                    6244,
+                    6564,
+                    10119,
+                    7360,
+                    9310,
+                    11268,
+                    6630,
+                    6628,
+                    9978,
+                    8698
+                ]
+            ];
         };
 
-        $scope.refreshData = function(){
-            if($scope.voteState){
+        $scope.refreshData = function () {
+            if ($scope.voteState) {
                 $scope.voteYes();
             } else {
                 $scope.voteNo();
@@ -231,18 +269,18 @@
 
 
         $scope.voteYes = function () {
-                $scope.investment = 35162;
-                // 5.5656312 %
-                $scope.data = [94.37, 5.63];
+            $scope.investment = 35162;
+            // 5.5656312 %
+            $scope.data = [94.37, 5.63];
         };
-        $scope.voteNo = function() {
-                $scope.investment = 34662;
-                // 5.54962 %
-                $scope.data = [94.45, 5.55];
+        $scope.voteNo = function () {
+            $scope.investment = 34662;
+            // 5.54962 %
+            $scope.data = [94.45, 5.55];
         };
 
-        $scope.refreshData = function(){
-            if($scope.voteState){
+        $scope.refreshData = function () {
+            if ($scope.voteState) {
                 $scope.voteYes();
             } else {
                 $scope.voteNo();
@@ -262,13 +300,13 @@
             // 17.455954
             $scope.data = [82.34, 17.66];
         };
-        $scope.voteNo = function() {
+        $scope.voteNo = function () {
             // 17.4057393
             $scope.data = [82.59, 17.41];
         };
 
-        $scope.refreshData = function(){
-            if($scope.voteState){
+        $scope.refreshData = function () {
+            if ($scope.voteState) {
                 $scope.voteYes();
             } else {
                 $scope.voteNo();
@@ -293,12 +331,12 @@
         $scope.voteYes = function () {
             $scope.data = [8.1, 11.1 - 2.29, 14.2, 14.8, 51.9, 2.29];
         };
-        $scope.voteNo = function() {
-                $scope.data = [8.1, 11.1 - 0.88, 14.2, 14.8, 51.9, 0.88];
+        $scope.voteNo = function () {
+            $scope.data = [8.1, 11.1 - 0.88, 14.2, 14.8, 51.9, 0.88];
         };
 
-        $scope.refreshData = function(){
-            if($scope.voteState){
+        $scope.refreshData = function () {
+            if ($scope.voteState) {
                 $scope.voteYes();
             } else {
                 $scope.voteNo();
