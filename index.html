@@ -67,6 +67,9 @@
         .thumbnail {
             margin-bottom: 50px;
         }
+        nav.embed {
+            display: none;
+        }
 
 
     </style>
@@ -101,8 +104,8 @@
 </script>
 
 <!-- Static navbar -->
-<nav ng-controller="UserController as user" class="navbar navbar-default navbar-static-top">
-    <div class="container">
+<nav ng-controller="UserController as user" class="navbar navbar-default navbar-static-top" ng-class="embed">
+    <div class="js-navbar container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                     aria-expanded="false" aria-controls="navbar">

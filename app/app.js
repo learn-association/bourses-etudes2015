@@ -156,6 +156,12 @@
         });
 
         var search = $location.search();
+        $rootScope.embed = 'not-embed';
+
+        if (typeof search['embed'] != 'undefined') {
+            console.log('embed');
+            $scope.embed = 'embed';
+        }
 
         if (typeof search['lang'] == 'undefined') {
             $location.path('/').search({'lang': 'fr'}).replace();
