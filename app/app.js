@@ -138,8 +138,8 @@
             CHART4_BODY: "<p> <small>Quelle: <a href='http://www.bfs.admin.ch/bfs/portal/fr/index/themen/15/02/data/blank/05.html'> \
             Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>"
         });
-        $translateProvider.preferredLanguage('fr');
-
+        $translateProvider.preferredLanguage('de');
+        $translateProvider.useSanitizeValueStrategy(null);
         $locationProvider.html5Mode(true).hashPrefix('!');
 
     });
@@ -154,7 +154,11 @@
 
         $scope.$on('$locationChangeStart', function (event) {
             var search = $location.search();
-            $translate.use(search['lang']);
+            if(typeof search['lang'] != 'undefined' && search['lang'] == 'fr'){
+                $translate.use('fr');
+            } else {
+                $translate.use('de');
+            }
         });
 
         var search = $location.search();
@@ -165,21 +169,13 @@
             $scope.embed = 'embed';
         }
 
-        if (typeof search['lang'] == 'undefined') {
-            $location.path('/').search({'lang': 'fr'}).replace();
-        } else {
-            $translate.use(search['lang']);
-            if (typeof search['lang'] == 'de'){
-                $("meta[property='og\\:title']").attr("content", translations.MAIN_TITLE);
-                $("meta[property='og\\:description']").attr("content", translations.FB_DESCRIPTION);
-            }
+        if (typeof search['lang'] != 'undefined' && search['lang'] == 'fr')  {
+            $translate.use('fr');
         }
 
         $rootScope.$on('$translateChangeSuccess', function () {
-            $translate(['MAIN_TITLE', 'CHART1_LAB_H_SCHOOL']).then(function (translations) {
+            $translate(['MAIN_TITLE']).then(function (translations) {
                 document.title = translations.MAIN_TITLE;
-                $("meta[property='og\\:title']").attr("content", translations.MAIN_TITLE);
-                $("meta[property='og\\:description']").attr("content", translations.FB_DESCRIPTION);
             });
         });
 

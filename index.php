@@ -1,13 +1,27 @@
+<?php
+  $lang = 'de';
+
+  if(isset($_GET['lang'])){
+    if($_GET['lang'] == 'fr') {
+      $lang = 'fr';
+    }
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Stipendieninitiative. Was wären die Folgen?">
+  <?php if($lang == 'fr'): ?>
+    <meta property="og:title" content="Initiative sur les bourses d'études. Quelles conséquences?">
+    <meta property="og:description" content="Testez les conséquences de l'initiative!">
+  <?php else: ?>
+    <meta property="og:title" content="Stipendieninitiative. Was wären die Folgen?">
+    <meta property="og:description" content="Prüfen die Folgen der Initiative!">
+  <?php endif; ?>
   <meta property="og:url" content="http://stipendieninitiative.learn-association.ch/">
   <meta property="og:image" content="http://stipendieninitiative.learn-association.ch/chart2.png">
-  <meta property="og:description" content="Prüfen die Folgen der Initiative!">
   <meta property="og:type" content="article">
   <meta property="fb:app_id" content="1587196631554813">
 
@@ -131,10 +145,10 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="?lang=de" class="btn">Deutsch</a>
+          <a href="/" class="btn">Deutsch</a>
         </li>
         <li>
-          <a href="?lang=fr" class="btn">Français</a>
+          <a href="/?lang=fr" class="btn">Français</a>
         </li>
       </ul>
 
