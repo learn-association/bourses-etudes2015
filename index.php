@@ -1,9 +1,10 @@
 <?php
   $lang = 'de';
-
+  $fb_url = 'http://stipendieninitiative.learn-association.ch/';
   if(isset($_GET['lang'])){
     if($_GET['lang'] == 'fr') {
       $lang = 'fr';
+      $fb_url = 'http://stipendieninitiative.learn-association.ch/?lang=fr';
     }
   }
 ?>
@@ -20,7 +21,7 @@
     <meta property="og:title" content="Stipendieninitiative. Was wären die Folgen?">
     <meta property="og:description" content="Prüfen die Folgen der Initiative!">
   <?php endif; ?>
-  <meta property="og:url" content="http://stipendieninitiative.learn-association.ch/">
+  <meta property="og:url" content="<?php print $fb_url; ?>">
   <meta property="og:image" content="http://stipendieninitiative.learn-association.ch/chart2.png">
   <meta property="og:type" content="article">
   <meta property="fb:app_id" content="1587196631554813">
@@ -152,7 +153,7 @@
         </li>
       </ul>
 
-      <div class="navbar-text fb-like" data-href="http://stipendieninitiative.learn-association.ch"
+      <div class="navbar-text fb-like" data-href="<?php print $fb_url; ?>"
            data-layout="standard" data-action="like" data-show-faces="false" data-share="true"></div>
 
 
@@ -373,7 +374,7 @@
   <div class="row">
     <div class="col-md-12">
       <p>
-      <div class="fb-like" data-href="http://stipendieninitiative.learn-association.ch"
+      <div class="fb-like" data-href="<?php print $fb_url; ?>"
            data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
       </p>
     </div>
