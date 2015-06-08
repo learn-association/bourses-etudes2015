@@ -31,6 +31,7 @@
         });
 
         $translateProvider.translations('fr', {
+            BRAND: "Initiative sur les bourses d'études",
             MAIN_TITLE: "Initiative sur les bourses d'études. Quelles conséquences?",
             LEAD: 'En cliquant sur <em>"si je vote oui"</em>, la simulation prend en compte le coût de 500 millions avancé par les Conseil fédéral <small>(les dernières estimations avancent un chiffre de 120 millions). Simulation effectuée à partir des statistiques des dépenses de 2012-2013. </small>',
             FB_DESCRIPTION: "Testez les conséquences de l'initiative!",
@@ -86,6 +87,7 @@
             Statistique Suisse – Système d'éducation - Données détaillées</a></small></p>"
         });
         $translateProvider.translations('de', {
+            BRAND: "Stipendieninitiative",
             MAIN_TITLE: 'Stipendieninitiative. Was wären die Folgen?',
             LEAD: 'Bei einem Klick auf <em>"Wenn ich ja stimme"</em> berücksichtig die Simulation die vom Bundesrat veranschlagten  Kosten von 500 Millionen <small>(die neusten Schätzungen beziffern die Kosten mit 120  Millionen). Die Simulation stützt sich auf Ausgabestatistiken der Jahre 2013-2013.</small>',
             FB_DESCRIPTION: "Prüfen die Konsequenzen der Initiative!",
@@ -159,13 +161,26 @@
             } else {
                 $translate.use('de');
             }
+
+            $scope.isActive = function($path) {
+                var $currentPath = '/';
+                if (typeof search['lang'] != 'undefined' && search['lang'] == 'fr')  {
+                    $currentPath += '?lang=' + search['lang'];
+                }
+                if($currentPath == $path){
+                    return 'active';
+                }
+            };
         });
+
+
+
+
 
         var search = $location.search();
         $rootScope.embed = 'not-embed';
 
         if (typeof search['embed'] != 'undefined') {
-            console.log('embed');
             $scope.embed = 'embed';
         }
 

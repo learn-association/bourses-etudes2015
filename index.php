@@ -133,9 +133,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">
-        Initiative sur les bourses d'études.
-      </a>
+      <a class="navbar-brand" translate="BRAND" href="/"></a>
 
 
     </div>
@@ -145,11 +143,11 @@
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="/" class="btn">Deutsch</a>
+        <li ng-class="isActive('/')">
+          <a href="/" class="" >Deutsch</a>
         </li>
-        <li>
-          <a href="/?lang=fr" class="btn">Français</a>
+        <li ng-class="isActive('/?lang=fr')">
+          <a href="/?lang=fr" class="" >Français</a>
         </li>
       </ul>
 
